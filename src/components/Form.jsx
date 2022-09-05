@@ -1,6 +1,7 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react'
+import Error from './Error'
 
-const Form = () => {
+const Form = ({patients, setPatients}) => {
 
   const [name, setName] = useState('')
   const [owned, setOwned] = useState('')
@@ -25,6 +26,23 @@ const Form = () => {
 
     setError(false)
 
+    // Objeto de patient
+    const objPatient = {
+      name,
+      owned,
+      email,
+      date,
+      symptom
+    }
+
+    setPatients([...patients, objPatient])
+
+    //Resetear Formulario:
+    setName('')
+    setOwned('')
+    setEmail('')
+    setDate('')
+    setSymptom('')
 
   }
 
@@ -40,12 +58,13 @@ const Form = () => {
         className='bg-white shadow-sm rounded-sm py-10 px-5 mb-10'
         onSubmit={ handleSubmit }
       >
-        { error && (
-            <div className='bg-red-800 text-white text-center p-3 uppercase font-bold mb-3 rounded-lg'>
-              <p>Todos los campos son obligatorios</p>
-            </div>
-          )
-        }
+        {/* { error && ( <Error msg='Todos los campos son obligatorios' /> )} */}
+
+        {/* Con children 👇 */}
+        { error && ( <Error>
+          <h1>Pasando el mensaje con Children</h1>
+          <p> Todos los campos son obligatorios</p>
+        </Error>  )}
 
         {/* petName */}
         <div className='mb-5'>
