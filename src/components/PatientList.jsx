@@ -1,7 +1,8 @@
 import React from 'react'
 import Patient from './Patient'
 
-const PatientList = () => {
+const PatientList = ({patients}) => {
+
   return (
     <div className='md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll'>
 
@@ -11,10 +12,17 @@ const PatientList = () => {
         <span className='text-indigo-600 font-bold'>Pacientes y Citas</span>
       </p>
 
+      {
+        patients.map( (patient, index) =>  (
+            <Patient key={index} patient={patient} />
+          )
+      )}
+
+    {/*
       <Patient />
       <Patient />
       <Patient />
-      <Patient />
+    */}
     </div>
   )
 }
