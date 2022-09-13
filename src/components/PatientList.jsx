@@ -13,8 +13,8 @@ const PatientList = ({patients}) => {
       </p>
 
       {
-        patients.map( (patient, index) =>  (
-            <Patient key={index} patient={patient} />
+        patients.map( (patient) =>  (
+            <Patient key={ patient.id } patient={patient} />
           )
       )}
 
