@@ -1,4 +1,11 @@
-const Patient = ({patient}) => {
+// import {useEffect} from 'react'
+
+const Patient = ({patient, setPatient}) => {
+
+  // useEffect( () => {
+  //   console.log("El componente Patient está listo: ")
+  // }, [])
+
   return (
     <div className='mx-3 my-5 bg-white shadow-sm px-5 py-10 rounded-xl'>
         <p className='font-bold mb-3 text-gray-700 uppercase'> Nombre: {''}
@@ -20,6 +27,7 @@ const Patient = ({patient}) => {
           <button
             type="button"
             className="py-2 px-10 bg-indigo-600 hover:bg-indigo text-white font-bold uppercase rounded"
+            onClick={ () => setPatient(patient) }
           >
               Editar
           </button>

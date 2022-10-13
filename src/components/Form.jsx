@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import Error from './Error'
 
-const Form = ({patients, setPatients}) => {
+const Form = ({patients, setPatients, patient}) => {
 
   const [name, setName] = useState('')
   const [owned, setOwned] = useState('')
@@ -10,6 +10,16 @@ const Form = ({patients, setPatients}) => {
   const [symptom, setSymptom] = useState('')
 
   const [error, setError] = useState(false)
+
+  // useEffect( () => {
+  //   console.log("El componente Form está listo: ")
+  // }, [])
+
+  // useEffect( () => {
+  //   console.log("patient: ")
+  //   console.log(patient)
+  // }, [patient])
+
 
   const idGenerator = () => {
     const random = Math.random().toString(36).substr(2)
