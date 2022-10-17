@@ -8,17 +8,22 @@ const Form = ({patients, setPatients, patient}) => {
   const [email, setEmail] = useState('')
   const [date, setDate] = useState('')
   const [symptom, setSymptom] = useState('')
-
   const [error, setError] = useState(false)
 
-  // useEffect( () => {
-  //   console.log("El componente Form está listo: ")
-  // }, [])
-
-  // useEffect( () => {
-  //   console.log("patient: ")
-  //   console.log(patient)
-  // }, [patient])
+  useEffect( () => {
+    // comprueba que el objeto contenga algo:
+    if( Object.keys(patient.length > 0) ) {
+      // Pásamos los valores del objeto patient al estado que ya está ligado a cada input del formulario:
+      setName( patient.name )
+      setOwned( patient.owned )
+      setEmail( patient.email )
+      setDate( patient.date )
+      setSymptom( patient.symptom )
+    }
+    // else {
+    //   console.log("no hay nada en el objeto")
+    // }
+  }, [patient])
 
 
   const idGenerator = () => {
