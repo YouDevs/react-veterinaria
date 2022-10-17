@@ -166,7 +166,10 @@ const Form = ({patients, setPatients, patient}) => {
         </div>
         <button
           className='bg-indigo-600 w-full p-3 text-white uppercase font-bold text-center hover:bg-indigo-700 transition-colors cursor-pointer'
-          type="submit">Agregar paciente</button>
+          type="submit">
+            {/* Si tiene id entonces es editar paciente, sino es agregar paciente */}
+            {patient.id? 'Editar paciente': 'Agregar paciente'}
+          </button>
       </form>
     </div>
   )
