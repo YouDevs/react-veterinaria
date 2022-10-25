@@ -1,10 +1,17 @@
 // import {useEffect} from 'react'
 
-const Patient = ({patient, setPatient}) => {
+const Patient = ({patient, setPatient, deletePatient}) => {
 
   // useEffect( () => {
   //   console.log("El componente Patient está listo: ")
   // }, [])
+
+  const handleDelete = () => {
+    const response = confirm('Deseas eliminar este paciente?')
+    if(response) {
+      deletePatient(patient.id)
+    }
+  }
 
   return (
     <div className='mx-3 my-5 bg-white shadow-sm px-5 py-10 rounded-xl'>
@@ -34,6 +41,7 @@ const Patient = ({patient, setPatient}) => {
           <button
             type="button"
             className="py-2 px-10 bg-red-600 hover:bg-red text-white font-bold uppercase rounded"
+            onClick={handleDelete}
           >
               Eliminar
           </button>

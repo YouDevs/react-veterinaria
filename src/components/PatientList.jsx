@@ -1,13 +1,8 @@
 // import {useEffect} from 'react'
 import Patient from './Patient'
 
-const PatientList = ({patients, setPatient}) => {
+const PatientList = ({patients, setPatient, deletePatient}) => {
 
-  // useEffect( () => {
-  //   if(patients.length > 0) {
-  //     console.log("Nuevo paciente")
-  //   }
-  // }, [patients])
 
   return (
     <div className='md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll'>
@@ -24,6 +19,7 @@ const PatientList = ({patients, setPatient}) => {
                       key={ patient.id }
                       patient={patient}
                       setPatient={setPatient}
+                      deletePatient={deletePatient}
                     />
                   )
               )}
