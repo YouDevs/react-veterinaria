@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from "./components/Header"
 import Form from "./components/Form"
 import PatientList from "./components/PatientList"
@@ -7,6 +7,21 @@ function App() {
 
   const [patients, setPatients] = useState([])
   const [patient, setPatient] = useState({})
+
+  // **** Los effects se ejecutan en el orden que se definen ****
+
+  // Se ejecuta cuando el componente está listo nada más.
+  useEffect(() => {
+    const obtenerLS = () => {
+      const pacientesLS = JSON.parse(localStorage.getItem('patients')) ?? [];
+      setPatients(pacientesLS)
+    }
+    obtenerLS();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('patients', JSON.stringify( patients ));
+  }, [patients])
 
   const deletePatient = (id) => {
     const updatePatients = patients.filter( patient => patient.id !== id )

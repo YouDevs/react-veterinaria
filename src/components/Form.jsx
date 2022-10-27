@@ -12,7 +12,7 @@ const Form = ({patients, setPatients, patient, setPatient}) => {
 
   useEffect( () => {
     // comprueba que el objeto contenga algo:
-    if( Object.keys(patient.length > 0) ) {
+    if( Object.keys(patient).length > 0 ) {
       // Pásamos los valores del objeto patient al estado que ya está ligado a cada input del formulario:
       setName( patient.name )
       setOwned( patient.owned )
